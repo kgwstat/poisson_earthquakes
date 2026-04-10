@@ -25,16 +25,20 @@ We are essentially trying to estimate the probablity that the number of earthqua
 
 Empirical analysis reveals that earthquakes of magnitude ≥6.5 are relatively rare and the probabilty that there will be none in a given week is about 0.50. In the event there is an earthquake of ≥6.5, its aftershocks are unlikely to be ≥6.5 unless its magnitude is ≥7.7 according to Bath's law. But earthquakes of such magnitude are even rarer and the probability of one happening in a given week is less than 0.05. Therefore, homogenous Poisson process provides a good baseline for in more than 95% of cases.
 
-In the event of a large enough earthquake (≥7.7) this dynamic changes, as Omori's law will kick in and the probability of another earthquake of ≥6.5 before the end of the week decays geometrically instead of exponentially as implied by the Poisson model. In such an event, the Poisson model would overestimate the probability of no earthquakes of ≥6.5 and underestimate the probability of 1 or more earthquakes of ≥6.5. To account for this, we can develop a more sophisticated prediction procedure by fitting Omori's law after a large earthquake (≥7.7). Alternatively, we can try to mitigate our exposure to large earthquakes by [buying another contract.](https://polymarket.com/event/how-many-7pt0-or-above-earthquakes-by-june-30) 
+In the event of a large enough earthquake (≥7.7) this dynamic changes, as Omori's law will kick in and the probability of another earthquake of ≥6.5 before the end of the week decays geometrically instead of exponentially as implied by the Poisson model. In such an event, the Poisson model would overestimate the probability of no earthquakes of ≥6.5 and underestimate the probability of 1 or more earthquakes of ≥6.5. To account for this, we can develop a more sophisticated prediction procedure by fitting Omori's law which will momentarily briefly diminish (or elevate) the probabilities after a large earthquake (≥7.7) . Alternatively, we can try to mitigate our exposure to large earthquakes by [buying another contract.](https://polymarket.com/event/how-many-7pt0-or-above-earthquakes-by-june-30) 
 
-It should be noted that earthquakes of size ≥5.5 are much more frequent and as a result pricing corresponding contracts is more [involved](https://polymarket.com/event/how-many-5pt5-or-above-earthquakes-april-6-april-12).
+It should be noted that earthquakes of size ≥5.5 are much more frequent and as a result pricing corresponding contracts is much more [involved](https://polymarket.com/event/how-many-5pt5-or-above-earthquakes-april-6-april-12).
 
 ---
 
 ## Analysis and Fit
 
 We estimate the Poisson rate $\lambda$ to be 0.77. The price of the contract at time $t$ and total number of earthquakes $k$ after seeing $r$ significant earthquakes as
-$$p(t, k, r) = \frac{1}{(k-r)!}e^{-\lambda(T-t)}[\lambda(T-t)]^{k-r}$$
+
+$$
+p(t, k, r) = \frac{1}{(k-r)!}e^{-\lambda(T-t)}[\lambda(T-t)]^{k-r}
+$$
+
 where $T$ is the expiry. The market prices appears to be reasonably close to the empirical and Poisson estimates. As of now, the price descrepancy for $k=0$ is about 3.4% and the bid-ask spread is about 2%. 
 
 ![Prices and Probabilites](price_vs_model.png)
@@ -52,7 +56,9 @@ The following table depicts the empirical probability of an earthquake of magnit
 | 7.5 | 0.0120 | 0.0241 | 0.0362 | 0.0482 | 0.0603 | 0.0724 | 0.0845 |
 | 8.0 | 0.00190 | 0.00380 | 0.00580 | 0.00770 | 0.00960 | 0.0115 | 0.0134 |
 
+
 ![Table](empirical_prob_table.png)
+
 
 ---
 
